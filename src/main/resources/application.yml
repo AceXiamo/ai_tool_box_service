@@ -1,0 +1,79 @@
+spring:
+  security:
+    user:
+      name: xiamo
+      password: 147526
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://gz-cynosdbmysql-grp-bs36fmz7.sql.tencentcdb.com:20396/ai_tool_box?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8&allowMultiQueries=true
+    username: root
+    password: xM147526.
+    hikari:
+      leakDetectionThreshold: 300000
+      # 初始连接数
+      initialSize: 10
+      # 最小连接池数量
+      minIdle: 20
+      # 最大连接池数量
+      maxActive: 200
+      # 配置获取连接等待超时的时间
+      maxWait: 60000
+      # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      timeBetweenEvictionRunsMillis: 60000
+      # 配置一个连接在池中最小生存的时间，单位是毫秒
+      minEvictableIdleTimeMillis: 300000
+      # 配置一个连接在池中最大生存的时间，单位是毫秒
+      maxEvictableIdleTimeMillis: 900000
+      # 配置检测连接是否有效
+      validationQuery: SELECT 1
+      # 当连接池中的连接处于空闲状态时，连接池会定期检查连接是否有效。如果设置为true，连接池会在空闲时检查连接是否可用，以避免使用无效的连接。
+      testWhileIdle: true
+      # 当从连接池中获取连接时，连接池会检查连接是否有效。如果设置为true，连接池会在获取连接时检查连接是否可用，以确保不会返回无效的连接。
+      testOnBorrow: true
+      # 当归还连接到连接池时，连接池会检查连接是否有效。如果设置为true，连接池会在归还连接时检查连接是否可用，以确保连接池中只包含有效的连接。
+      testOnReturn: false
+      poolPreparedStatements: true
+    min-evictable-idle-time-millis: 1800000
+    test-while-idle: true
+    time-between-eviction-runs-millis: 60000
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    database: 0
+    password:
+    timeout: 6000
+    lettuce:
+      pool:
+        min-idle: 0
+        max-idle: 100
+        max-active: 300
+        max-wait: -1ms
+      shutdown-timeout: 100
+server:
+  port: 8080
+
+logging:
+  level:
+    org.springframework: warn
+    com.xiamo: debug
+
+token:
+  header: Authorization
+  secret: RcLmTCcuRqdBRrjlgoU7ILsN4Qx8EubdgbVqYKa9Y5f6RVzymBhCBKQL3RwEd342vxMiDcpMP7L8ZN6nQXAYsv1oEAK2V
+  expireTime: 720
+  minToRefresh: 20
+
+mybatis-plus:
+  mapper-locations: classpath*:mapper/**/*Mapper.xml
+
+wx:
+  miniapp:
+    configs:
+      - appid: wx45e76931e8407283
+        secret: 3ee63520cfdd8c33fb090423d012bc16
+        token: #微信小程序消息服务器配置的token
+        aesKey: #微信小程序消息服务器配置的EncodingAESKey
+        msgDataFormat: JSON
+
+openai:
+  key: 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
