@@ -47,7 +47,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .exceptionHandling().authenticationEntryPoint(authenticationEntryPoint).and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
                 .authorizeRequests()
-                .antMatchers("/wx/login", "/file/view/**").anonymous()
+                .antMatchers("/wx/login", "/file/view/**", "/**/lock").anonymous()
                 .anyRequest().authenticated()
                 .and()
                 .headers().frameOptions().disable();
