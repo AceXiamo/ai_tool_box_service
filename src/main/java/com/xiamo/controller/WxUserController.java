@@ -11,6 +11,7 @@ import com.xiamo.enums.MaEnum;
 import com.xiamo.model.LoginUser;
 import com.xiamo.security.SecurityService;
 import com.xiamo.service.IWxUserService;
+import com.xiamo.utils.BanUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -87,6 +88,8 @@ public class WxUserController {
      */
     @PostMapping("/update")
     public AjaxResult update(@RequestBody WxUser user) {
+        BanUtil.isBan();
+
         Assert.isTrue(StrUtil.isNotEmpty(user.getOpenId()), "呃呃，操作失败");
         wxUserService.updateById(user);
         return AjaxResult.success();

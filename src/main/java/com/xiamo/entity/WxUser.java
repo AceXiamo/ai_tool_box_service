@@ -34,9 +34,10 @@ public class WxUser {
 
     /**
      * The Is ban.
+     * 是否永久封禁
      */
     @TableField("is_ban")
-    private String is_ban;
+    private String isBan;
 
     /**
      * 创建时间
@@ -51,6 +52,21 @@ public class WxUser {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @TableField("update_time")
     private Date updateTime;
+
+    /**
+     * The Ban end time.
+     * 非永久封禁的截止时间
+     */
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @TableField("ban_end_time")
+    private Date banEndTime;
+
+    /**
+     * The Desc of ban.
+     * 封禁备注
+     */
+    @TableField("desc_of_ban")
+    private String descOfBan;
 
     /* ===================================== */
 

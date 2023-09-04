@@ -5,6 +5,7 @@ import cn.hutool.core.lang.Assert;
 import cn.hutool.core.util.IdUtil;
 import cn.hutool.core.util.StrUtil;
 import com.xiamo.common.AjaxResult;
+import com.xiamo.utils.BanUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -36,6 +37,7 @@ public class FileController {
      */
     @PostMapping("upload")
     public AjaxResult upload(MultipartFile file) {
+        BanUtil.isBan();
         StringBuilder builder = new StringBuilder();
         builder.append("/avatar/")
                 .append(IdUtil.objectId())

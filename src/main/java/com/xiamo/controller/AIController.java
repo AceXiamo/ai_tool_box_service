@@ -1,5 +1,6 @@
 package com.xiamo.controller;
 
+import cn.hutool.core.lang.Assert;
 import cn.hutool.http.HttpRequest;
 import com.alibaba.fastjson2.JSONArray;
 import com.alibaba.fastjson2.JSONObject;
@@ -11,6 +12,8 @@ import com.xiamo.entity.UserHistory;
 import com.xiamo.security.SecurityService;
 import com.xiamo.service.IRequestHistoryService;
 import com.xiamo.service.IUserHistoryService;
+import com.xiamo.service.IWxUserService;
+import com.xiamo.utils.BanUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
@@ -24,7 +27,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 @RequestMapping("ai")
-public class AIController {
+public class AIController  {
 
     /**
      * The constant API.
@@ -36,6 +39,18 @@ public class AIController {
      */
     @Value("${openai.key}")
     private String key;
+
+    /**
+     * The Open.
+     */
+    @Value("${openai.open}")
+    private Boolean open;
+
+    /**
+     * The User service.
+     */
+    @Autowired
+    private IWxUserService userService;
 
     /**
      * The User history service.
@@ -51,6 +66,7 @@ public class AIController {
 
     /**
      * Send ajax result.
+     * <br/>
      * {
      * messageId: 1,
      * body: {
@@ -69,6 +85,9 @@ public class AIController {
      */
     @PostMapping("send")
     public AjaxResult send(@RequestBody JSONObject jsonObject) {
+        BanUtil.isBan();
+        Assert.isTrue(open, "维护中～");
+
         Integer messageId = jsonObject.getInteger("messageId");
         JSONObject jsonBody = jsonObject.getJSONObject("body");
         JSONArray messages = jsonBody.getJSONArray("messages");
