@@ -11,6 +11,7 @@
 
 ### 后端
 - 
+
 - Java11
 - SpringBoot
 - Mybatis Plus
@@ -27,11 +28,13 @@
 
 ## 预览
 
-<img src="./assets/1711693805978_.pic.jpg" alt="image" width="200">
-<img src="./assets/chat.png" alt="image" width="200">
-<img src="./assets/translator.png" alt="image" width="200">
-<img src="./assets/polish.png" alt="image" width="200">
-<img src="./assets/food.png" alt="image" width="200">
+<div style="display: flex;flex-wrap: wrap;gap: 15px;">
+    <img src="./assets/1711693805978_.pic.jpg" alt="image" width="200">
+    <img src="./assets/chat.png" alt="image" width="200">
+    <img src="./assets/translator.png" alt="image" width="200">
+    <img src="./assets/polish.png" alt="image" width="200">
+    <img src="./assets/food.png" alt="image" width="200">
+</div>
 
 ## ABOUT
 
