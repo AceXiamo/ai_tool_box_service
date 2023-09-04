@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
  */
 @Slf4j
 @Component
-public class RedissonUtils {
+public class RedissonUtil {
 
     @Resource
     private RedissonClient redissonClient;
