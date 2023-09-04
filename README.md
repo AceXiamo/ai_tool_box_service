@@ -1,4 +1,4 @@
-# 微信小程序AI_TOOL_BOX Service
+# AI_TOOL_BOX Service
 
 这是一个基于OpenAI的微信小程序，用于提供一些AI相关的服务。
 
@@ -10,7 +10,6 @@
 ## 项目结构
 
 ### 后端
-- 
 
 - Java11
 - SpringBoot
@@ -35,7 +34,3 @@
     <img src="./assets/polish.png" alt="image" width="200">
     <img src="./assets/food.png" alt="image" width="200">
 </div>
-
-## ABOUT
-
-目前鉴于国内的一系列审查机制，该小程序已下线
