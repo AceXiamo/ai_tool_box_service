@@ -32,7 +32,7 @@ public class RedissonConfig {
         String address = "redis://" + host + ":" + port;
         singleServerConfig.setAddress(address);
         singleServerConfig.setDatabase(database);
-//        singleServerConfig.setPassword(password);
+        singleServerConfig.setPassword(password);
         return Redisson.create(config);
     }
 
