@@ -18,7 +18,7 @@ import java.nio.charset.StandardCharsets;
  * @ClassName: ServletUtils
  * @Date: 2023/3/3 22:36
  */
-public class ServletUtils {
+public class ServletUtil {
 
     /**
      * 获取String参数

@@ -4,7 +4,7 @@ import cn.hutool.core.util.StrUtil;
 import cn.hutool.http.HttpStatus;
 import com.alibaba.fastjson2.JSON;
 import com.xiamo.common.AjaxResult;
-import com.xiamo.utils.ServletUtils;
+import com.xiamo.utils.ServletUtil;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.stereotype.Component;
@@ -27,7 +27,7 @@ public class AuthenticationEntryPointImpl implements AuthenticationEntryPoint {
     {
         int code = HttpStatus.HTTP_UNAUTHORIZED;
         String msg = StrUtil.format("请求访问：{}，认证失败", request.getRequestURI());
-        ServletUtils.renderString(response, JSON.toJSONString(AjaxResult.error(code, msg)));
+        ServletUtil.renderString(response, JSON.toJSONString(AjaxResult.error(code, msg)));
     }
 
 }
