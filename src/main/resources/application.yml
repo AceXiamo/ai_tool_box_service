@@ -40,7 +40,7 @@ spring:
     host: 127.0.0.1
     port: 6379
     database: 0
-    password:
+    password: 123456
     timeout: 6000
     lettuce:
       pool:
@@ -69,11 +69,14 @@ mybatis-plus:
 wx:
   miniapp:
     configs:
-      - appid: wx45e76931e8407283
-        secret: 3ee63520cfdd8c33fb090423d012bc16
-        token: #微信小程序消息服务器配置的token
-        aesKey: #微信小程序消息服务器配置的EncodingAESKey
+      - appid: #eg. wx45e76931e8407283
+        secret: #eg. 3ee63520cfdd8c33fb090423d012bc16
+        token:
+        aesKey:
         msgDataFormat: JSON
 
 openai:
-  key: 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
+  # OpenAI API KEY
+  key:  #eg. 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
+  # OpenAI调用开关
+  open: false
